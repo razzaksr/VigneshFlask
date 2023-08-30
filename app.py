@@ -15,6 +15,29 @@ def askMe():
 def tempFirst():
     return render_template("first.html")
 
+@app.route("/skills")
+def showTable():
+    myList=[
+        {"front":"Thymeleaf","back":"SpringBoot","data":"Oracle","server":"apache tomcat"},
+        {"front":"Jinja","back":"Flask","data":"MongoDB","server":"WSGI"},
+        {"front":"React","back":"DJango","data":"MySQL","server":"WSGI"},
+        {"front":"Vite","back":"Express","data":"MongoDB","server":"Node"},
+    ]
+    return render_template("table.html",stack=myList)
+
+@app.route("/repeat")
+def callLoop():
+    myList=['Spring Boot','Flask','DJnago','Node','Hibernate']
+    return render_template("loops.html",myFrame=myList)
+
+@app.route("/decide/<float:income>")
+def decision(income):
+    return render_template("decisionmakings.html",ctc=income)
+
+@app.route("/jin/<int:value>")
+def callJinja(value):
+    return render_template("jinjacode.html",number=value);
+
 @app.route("/currency/<int:dollar>")
 def passFormats(dollar):
     rupees=dollar*82.77;
