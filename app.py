@@ -15,6 +15,15 @@ def askMe():
 def tempFirst():
     return render_template("first.html")
 
+@app.route("/currency/<int:dollar>")
+def passFormats(dollar):
+    rupees=dollar*82.77;
+    return render_template("opted.html",var=rupees)
+
+@app.route("/data/<thor>")
+def passValue(thor):
+    return render_template("opted.html",var=thor)
+
 @app.route("/send",methods=['GET','POST'])
 def performSignUp():
     if request.method=="GET":
